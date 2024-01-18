@@ -13,10 +13,34 @@ public class Warehouse implements Serializable {
 
     private String state;
     private String country;
-    private int inventoryQuantity;
+    private Integer inventoryQuantity;
 
-    public int getId() {
-        return id;
+    public Warehouse() {
+    }
+
+    @Override
+    public String toString() {
+        return "Warehouse{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", inventoryQuantity=" + inventoryQuantity +
+                '}';
+    }
+
+    public Warehouse(String name, String addressLine1, String addressLine2, String city, String state, String country,
+                     Integer inventoryQuantity) {
+        this.name = name;
+        this.addressLine1 = addressLine1;
+        this.addressLine2 = addressLine2;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.inventoryQuantity = inventoryQuantity;
     }
 
     public String getName() {
@@ -67,11 +91,11 @@ public class Warehouse implements Serializable {
         this.country = country;
     }
 
-    public int getInventoryQuantity() {
+    public Integer getInventoryQuantity() {
         return inventoryQuantity;
     }
 
-    public void setInventoryQuantity(int inventoryQuantity) {
+    public void setInventoryQuantity(Integer inventoryQuantity) {
         this.inventoryQuantity = inventoryQuantity;
     }
 
