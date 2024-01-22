@@ -1,5 +1,3 @@
-create database warehouseDB;
-use warehouseDB;
 CREATE TABLE IF NOT EXISTS warehouse (
                                          id SERIAL PRIMARY KEY,
                                          name VARCHAR(50) NOT NULL,
