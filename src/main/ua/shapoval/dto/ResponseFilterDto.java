@@ -4,7 +4,7 @@ import main.ua.shapoval.model.Warehouse;
 
 import java.util.List;
 
-public class ResponseDto {
+public class ResponseFilterDto {
     List<Warehouse> list;
     int count;
 
@@ -24,10 +24,10 @@ public class ResponseDto {
         this.count = count;
     }
 
-    public ResponseDto() {
+    public ResponseFilterDto() {
     }
 
-    public ResponseDto(List<Warehouse> list, int count) {
+    public ResponseFilterDto(List<Warehouse> list, int count) {
         this.list = list;
         this.count = count;
     }

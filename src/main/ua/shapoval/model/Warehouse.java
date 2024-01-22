@@ -1,16 +1,18 @@
 package main.ua.shapoval.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 
-public class Warehouse implements Serializable {
 
+public class Warehouse implements Serializable {
+    @JsonIgnore
     private int id;
     private String name;
     private String addressLine1;
     private String addressLine2;
     private String city;
-
     private String state;
     private String country;
     private Integer inventoryQuantity;
@@ -32,8 +34,11 @@ public class Warehouse implements Serializable {
                 '}';
     }
 
-    public Warehouse(String name, String addressLine1, String addressLine2, String city, String state, String country,
+
+
+    public Warehouse(int id, String name, String addressLine1, String addressLine2, String city, String state, String country,
                      Integer inventoryQuantity) {
+        this.id = id;
         this.name = name;
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
@@ -43,6 +48,13 @@ public class Warehouse implements Serializable {
         this.inventoryQuantity = inventoryQuantity;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

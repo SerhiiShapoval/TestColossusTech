@@ -3,6 +3,21 @@ package main.ua.shapoval.dto;
 import java.io.Serializable;
 
 public class WarehouseFilter implements Serializable {
+    @Override
+    public String toString() {
+        return "WarehouseFilter{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", quantity=" + quantity +
+                ", orderBy='" + orderBy + '\'' +
+                ", limit=" + limit +
+                ", offset=" + offset +
+                '}';
+    }
+
     private String name;
     private String address;
     private String city;
@@ -10,8 +25,6 @@ public class WarehouseFilter implements Serializable {
     private String country;
     private Integer quantity;
     private String orderBy;
-
-
     private Integer limit;
     private Integer offset;
 

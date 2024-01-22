@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface WarehouseDao {
    Warehouse get(int id);
-    void save(Warehouse warehouse);
+    Warehouse save(Warehouse warehouse);
 
-    void update(Warehouse warehouse, int id);
+    Warehouse update(Warehouse warehouse, int id);
 
     void delete(int id);
     List<Warehouse> getAllByFilter(WarehouseFilter filter);
