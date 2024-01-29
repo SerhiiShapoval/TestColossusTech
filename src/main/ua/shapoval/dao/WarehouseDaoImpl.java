@@ -22,8 +22,6 @@ public class WarehouseDaoImpl implements WarehouseDao {
     @Override
     public Warehouse save(Warehouse warehouse) {
 
-        Warehouse insertedWarehouse = new Warehouse();
-
         try (PreparedStatement preparedStatement =
                      dataBaseManager.getConnection().prepareStatement(SqlQuery.SAVE.getQuery(), Statement.RETURN_GENERATED_KEYS)) {
 
@@ -43,8 +41,7 @@ public class WarehouseDaoImpl implements WarehouseDao {
 
                     if (resultSet.next()) {
 
-                        insertedWarehouse = copyFrom(warehouse);
-                        insertedWarehouse.setId(resultSet.getInt(1));
+                        warehouse.setId(resultSet.getInt(1));
                         System.out.println(" A new warehouse was created successfully ");
 
                     }
@@ -56,7 +53,7 @@ public class WarehouseDaoImpl implements WarehouseDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return insertedWarehouse;
+        return warehouse;
     }
 
     @Override
@@ -80,10 +77,8 @@ public class WarehouseDaoImpl implements WarehouseDao {
 
             if (result > 0) {
 
-                Warehouse updatedWarehouse = copyFrom(warehouse);
-
                 System.out.println(" A warehouse was updated successfully ");
-                return updatedWarehouse;
+                return warehouse;
 
             } else {
                 throw new WarehouseNotFoundException(" Warehouse with " + id + " not found ");
@@ -192,16 +187,5 @@ public class WarehouseDaoImpl implements WarehouseDao {
 
     }
 
-    private Warehouse copyFrom(Warehouse warehouse) {
-        Warehouse copy = new Warehouse();
-        copy.setName(warehouse.getName());
-        copy.setAddressLine1(warehouse.getAddressLine1());
-        copy.setAddressLine2(warehouse.getAddressLine2());
-        copy.setCity(warehouse.getCity());
-        copy.setState(warehouse.getState());
-        copy.setCountry(warehouse.getCountry());
-        copy.setInventoryQuantity(warehouse.getInventoryQuantity());
-        return copy;
-    }
 }
 
